@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3d变换</title>
+    <style>
+        svg,body,html{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            background-color: #ccc;
+        }
+        h1{
+            text-align: center;
+        }
+        #img{
+            width: 300px;
+            height: 300px;
+            perspective: 1200px;
+            transform-style: preserve-3d;
+            position: absolute;
+            left:50%;
+            margin-left: -150px;
+            top:50%;
+            margin-top: -150px;
+            animation:animate 5s  forwards;
+        }
+        #img div{
+            width: 100%;
+
+        }
+        img{
+            box-shadow: 0 0 10px #ccc;
+            width: 300px;
+            height: 300px;
+            display: block;
+            opacity: 0.5;
+        }
+        img:nth-child(1){
+            transform: translateZ(150px);
+        }
+        img:nth-child(2){
+            transform: translateX(-150px) rotateY(90deg) translateY(-300px);
+        }
+        img:nth-child(3){
+            transform: translateX(150px) rotateY(90deg) translateY(-603px);
+        }
+        img:nth-child(4){
+            transform:rotateX(90deg) rotateZ(90deg) translateZ(750px);
+        }
+        img:nth-child(5){
+            opacity: 1;
+            transform:rotateX(90deg) translateZ(1350px);
+        }
+        @keyframes animate {
+            from{
+
+            }
+            25%{
+                transform: rotateY(360deg);
+            }
+            50%{
+                transform: scale(0.5) rotateX(360deg);
+            }
+            90%{
+                transform: scale(10) rotateY(360deg);
+            }
+            to{
+                opacity: 0;
+            }
+        }
+        svg{
+            background: #ccc;
+        }
+        path{
+            stroke-width: 3px;
+            stroke-linecap: round;
+            fill:none;
+            stroke-dashoffset: 2000;
+            stroke-dasharray: 2000;
+            animation: path 5s  linear forwards ;
+        }
+        path:nth-child(1){
+            stroke: #396;
+        }
+        path:nth-child(2){
+            stroke: gold;
+        }
+        path:nth-child(3){
+            stroke: #06a;
+        }
+        @keyframes path {
+            to{
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="img">
+    <img src="milk.jpg" alt="">
+    <img src="sdy.jpg" alt="">
+    <img src="1.jpg" alt="">
+    <img src="sdy.jpg" alt="">
+    <img src="milk.jpg" alt="">
+</div>
+<svg>
+    <path d="M50 50
+          L120 50
+          A15 2 0 1 0 110 30
+          L105 100
+          v -50
+          L 70 85
+          L141 70
+          L104 120
+          v 100
+          A 1 2 0 0 1 69 204
+          L31 167
+          L196 127">
+    </path>
+    <path d="M500 50
+        L 410 136
+        M457 89
+        L 610 136
+        M 445 155
+        h 70
+        M 445 175
+        h 70
+        M 475 155
+        v 90
+        M 457 232
+        L 428 213
+        M 520 232
+        L 538 213
+        M 405 245
+        h 140">
+    </path>
+    <path d="M780 50
+        h 90
+        h -45
+        v 70
+        h -50
+        h 100
+        h -50
+        v 80
+        L 740 233
+        L 932 157
+        A 4 3 0 0 1 1036 96
+        L 980 130
+        v 30
+        h 30
+        v -25
+        h -30
+        h 30
+        v 150
+        L 945 222">
+    </path>
+</svg>
+</body>
+<script>
+    window.onload=function(){
+        var img = document.getElementById("img");
+        window.onmousemove=function(e){
+            var x = e.clientX;
+            var y = e.clientY;
+            img.style.transform="rotateY("+x+"deg) rotateZ(-"+y+"deg)";
+        }
+    }
+</script>
+</html>

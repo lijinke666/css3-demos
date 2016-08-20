@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3d翻转</title>
+    <style>
+        body{
+            font-family: 'Microsoft YaHei';
+        }
+        .section{
+            width: 440px;
+            height: 440px;
+            margin: 200px auto;
+            position: relative;
+            cursor: pointer;
+            perspective: 10000px;
+            transform-origin: 50% 50%;
+            transform-style: preserve-3d;
+            transition: transform .7s cubic-bezier(.26,-0.13,.32,.99);
+        }
+        .box{
+            width: 440px;
+            height: 440px;
+            position: absolute;
+            top:0;
+            left:0;
+            text-align: center;
+            line-height: 440px;
+            color:#FFF;
+            background-color: #26af80;
+            font-size: 30px;
+        }
+        .box:nth-child(1){
+            z-index: 2;
+        }
+        .box:nth-child(2){
+            z-index: 1;
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+<div class="section">
+    <div class="box"><img src="milk.jpg" alt=""></div>
+    <div class="box">图片文字介绍</div>
+</div>
+</body>
+<script>
+    var section = document.querySelector('.section');
+    var isClick = false;
+    section.onclick = function(){
+        isClick = !isClick;
+        if(isClick == true){
+            section.style.transform = 'rotateY(180deg)'
+        }else{
+            section.style.transform = 'rotateY(0deg)'
+        }
+    }
+</script>
+</html>
