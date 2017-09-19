@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            max-width: 414px;
+            height: 480px;
+            border: solid #000;
+            margin: auto;
+            overflow: auto;
+        }
+
+        .shape {
+            float: left;
+            width: 30px;
+            height: 180px;
+            margin-top: 150px;
+            -webkit-shape-outside: url(liu-outside.png);
+            shape-outside: url(liu-outside.png);
+            transition: margin-top .15s;
+        }
+
+        .liuhai {
+            width: 24px;
+            height: 180px;
+            background: url(liu.png) no-repeat left center;
+            position: absolute;
+            margin-top: 150px;
+        }
+
+        .content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .content li {
+            border-bottom: 1px solid #eee;
+            padding: .5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box">
+        <i id="shape" class="shape"></i>
+        <i class="liuhai"></i>
+        <div class="content">
+            <ul>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+                <li>文字啊啊啊啊啊 啊啊啊啊啊</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    //代码 copy  张鑫旭 大神 只为记录学习
+    var eleShape = document.getElementById('shape');
+    var eleBox = document.getElementById('box');
+
+    var funShape = function () {
+        var scrollTop = eleBox.scrollTop;
+        // 滚动偏移应用在margin-top上
+        eleShape.style.marginTop = (150 + scrollTop) + 'px';
+    };
+    // 滚动时候实时改变shape形状
+    eleBox.addEventListener('scroll', funShape);
+    funShape();
+
+</script>
+
+</html>
