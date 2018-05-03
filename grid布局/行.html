@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+        *{
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    .container{
+      display: grid;
+      grid-template-rows: 100px 200px;
+    }
+    .item{
+      height:40px;
+      padding: 10px;
+      background: #396;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color:#fff;
+    }
+  </style>
+</head>
+<body>
+  <h1></h1>
+  <div class="container">
+    <div class="item">这个行高 100px</div>
+    <div class="item">这个行高 200px</div>
+    <div class="item">我没有指定,行高是自己的</div>
+    <div class="item">我没有指定,行高是自己的</div>
+  </div>
+</body>
+</html>

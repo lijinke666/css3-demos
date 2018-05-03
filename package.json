@@ -1,0 +1,14 @@
+{
+  "name": "css3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/lijinke666/css3.git",
+  "author": "jinke <1359518268@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "browser-sync start --server --files \"**/*.html\" "
+  },
+  "dependencies": {
+    "browser-sync": "^2.24.2"
+  }
+}
