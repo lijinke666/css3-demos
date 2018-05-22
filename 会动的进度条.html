@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>会动的进度条</title>
+  <style>
+    :root{
+      --primary-color:#396;
+      --complementary-color:rgb(171, 179, 175)
+    }
+    main {
+      width: 100%;
+      padding: 80px 0px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .progress-outer {
+      width: 60%;
+      height: 12px;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-enter {
+      height: inherit;
+      background: rgba(180, 160, 120, .2);
+    }
+
+    .progress-bg {
+      width: 60%;
+      height: inherit;
+      border-radius: 6px;
+      /* 绘制一条 倾斜 45度 的线条 */
+      background: repeating-linear-gradient(-45deg, var(--complementary-color) 25%, var(--primary-color) 0, var(--primary-color) 50%,
+      var(--complementary-color) 0, var(--complementary-color) 75%, var(--primary-color) 0);
+      background-size: 16px 16px;
+      /* 循环播放动画 */
+      animation: panoramic 20s linear infinite;  
+    }
+
+    /* 这个只能说太聪明了  更改 背景图定位 达到 在动 的感觉 200% 是为了动画播放完成之后再次播放 不那么生硬 */
+    @keyframes panoramic{
+      to{
+        background-position: 200%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="progress-outer">
+      <div class="progress-enter">
+        <div class="progress-bg"></div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
