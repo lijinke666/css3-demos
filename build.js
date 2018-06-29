@@ -3,8 +3,6 @@
 const path = require('path');
 const fs = require('fs');
 
-const outputName = 'index.html';
-
 const htmlTemp = `
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +28,7 @@ const htmlTemp = `
 </html>
 `;
 
-function getDirPath(dir = path.resolve(__dirname)) {
+function getDirPath(dir = __dirname, publicPath = '..') {
   if (!fs.existsSync(dir)) throw new Error(`${dir}: 不存在`);
   const _dir = fs.readdirSync(dir); //当前目录列表
   const filenames = [];
@@ -48,16 +46,20 @@ function getDirPath(dir = path.resolve(__dirname)) {
     if (isDirectory) {
       filenames.push(...getDirPath(currentPath));
     } else {
-      filenames.push(currentPath.replace(__dirname, '..'));
+      filenames.push(currentPath.replace(__dirname, publicPath));
     }
   }
   return filenames;
 }
-
-const createBookmark = ({ source = [], name = 'index.html' } = {}) => {
-  if (path.extname(name) !== '.html') {
+const createBookmark = ({
+  entry = __dirname,
+  output = 'index.html',
+  publicPath = ''
+} = {}) => {
+  if (path.extname(output) !== '.html') {
     throw new Error('文件名只能为:[.html]');
   }
+  const source = getDirPath(entry, publicPath);
   const temp = source.reduce((str, value, i) => {
     str += `
      <p>
@@ -67,12 +69,13 @@ const createBookmark = ({ source = [], name = 'index.html' } = {}) => {
     return str;
   }, '');
 
-  const html = htmlTemp.replace('{path}', temp).replace('{name}', name);
+  const html = htmlTemp.replace('{path}', temp).replace('{name}', output);
 
-  fs.writeFileSync(path.resolve(__dirname, name), html);
+  fs.writeFileSync(path.resolve(__dirname, output), html);
 };
 
 createBookmark({
-  source: getDirPath(),
-  name: outputName
+  entry: __dirname,
+  output: 'index.html',
+  publicPath: '/css3-demos'
 });
