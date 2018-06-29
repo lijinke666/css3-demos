@@ -6,7 +6,8 @@
   "author": "jinke <1359518268@qq.com>",
   "license": "MIT",
   "scripts": {
-    "start": "browser-sync start --server --files \"**/*.html\" "
+    "start": "browser-sync start --server --files \"**/*.html\" ",
+    "precommit":"node build.js"
   },
   "dependencies": {
     "browser-sync": "^2.24.2"

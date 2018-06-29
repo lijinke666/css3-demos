@@ -29,7 +29,7 @@ const htmlTemp = `
 `;
 
 function getDirPath(dir = __dirname, publicPath = '..') {
-  if (!fs.existsSync(dir)) throw new Error(`${dir}: 不存在`);
+  if (!fs.existsSync(dir)) throw new Error(`${dir}: not found`);
   const _dir = fs.readdirSync(dir); //当前目录列表
   const filenames = [];
 
@@ -42,11 +42,11 @@ function getDirPath(dir = __dirname, publicPath = '..') {
     ) {
       continue;
     }
-
+    const newPath = currentPath.replace(__dirname, publicPath);
     if (isDirectory) {
-      filenames.push(...getDirPath(currentPath));
+      filenames.push(...getDirPath(currentPath, publicPath));
     } else {
-      filenames.push(currentPath.replace(__dirname, publicPath));
+      filenames.push(newPath);
     }
   }
   return filenames;
@@ -57,7 +57,7 @@ const createBookmark = ({
   publicPath = ''
 } = {}) => {
   if (path.extname(output) !== '.html') {
-    throw new Error('文件名只能为:[.html]');
+    throw new Error(`[${output}] output format should be :[.html]`);
   }
   const source = getDirPath(entry, publicPath);
   const temp = source.reduce((str, value, i) => {
