@@ -10,8 +10,11 @@
         /* 使用 grid 布局 */
         display: grid;
         justify-content: space-between;
+        /* 每个格子 300px 中间的缝隙 自动填充 */
         grid-template-columns: repeat(auto-fill, 300px);
-        grid-gap: 10px;
+        /* 相当于 margin-top */
+        gap: 10px;
+        /* grid-gap 已废弃 */
       }
 
       .list {
@@ -21,7 +24,6 @@
         line-height: 1.5;
         border: 1px solid #444;
         background: #396;
-        margin-bottom: 10px;
       }
     </style>
   </head>
