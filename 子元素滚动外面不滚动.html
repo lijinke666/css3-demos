@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .container {
+        height: 50px;
+        overflow: auto;
+        border: 1px solid red;
+      }
+      .contain {
+        overscroll-behavior: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <pre class="container">
+    滚动
+    滚动
+    滚动
+    滚动
+    滚动
+    滚动
+    滚到这里的时候 窗口如果还有滚动条就会继续滚动
+  </pre
+    >
+    <h2>overscroll-behavior: contain</h2>
+    <pre class="container contain">
+    滚动
+    滚动
+    滚动
+    滚动
+    滚动
+    滚动
+    滚到这里的时候 添加 overscroll-behavior: contain 属性， 滚动到底部， 窗口不会动了
+  </pre
+    >
+    <div style="height: 1000px;"></div>
+  </body>
+</html>
