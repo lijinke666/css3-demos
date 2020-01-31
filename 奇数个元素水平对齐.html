@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .container {
+        /* 使用 grid 布局 */
+        display: grid;
+        justify-content: space-between;
+        grid-template-columns: repeat(auto-fill, 300px);
+        grid-gap: 10px;
+      }
+
+      .list {
+        width: 300px;
+        height: 150px;
+        text-align: center;
+        line-height: 1.5;
+        border: 1px solid #444;
+        background: #396;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="list">1</div>
+      <div class="list">2</div>
+      <div class="list">3</div>
+      <div class="list">4</div>
+      <div class="list">5</div>
+      <div class="list">6</div>
+      <div class="list">7</div>
+    </div>
+  </body>
+</html>
