@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: auto;
+      }
+      .item {
+        padding: 10px;
+        background: #396;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>
+      网格系统也引入了一个新的单位，分数fr。每一个fr单元分配一个可用的空间。比如说，如果两个元素分别被设置为1fr和3fr，那么空间就会被平均分配为4份；第一个元素占据1/4，第二个元素占据3/4。
+    </h2>
+    <p>感觉类似于 flex:1; flex-basic: 20% 这种</p>
+    <div class="container">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">9</div>
+      <div class="item">10</div>
+    </div>
+  </body>
+</html>
