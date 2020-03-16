@@ -1,7 +1,7 @@
 //将当前项目 所有 html 自动生成书签
 
-const path = require('path');
-const fs = require('fs');
+const path = require('path')
+const fs = require('fs')
 
 const htmlTemp = `
 <!DOCTYPE html>
@@ -26,56 +26,56 @@ const htmlTemp = `
 {path}
 </body>
 </html>
-`;
+`
 
 function getDirPath(dir = __dirname, publicPath = '..') {
-  if (!fs.existsSync(dir)) throw new Error(`${dir}: not found`);
-  const _dir = fs.readdirSync(dir); //当前目录列表
-  const filenames = [];
+  if (!fs.existsSync(dir)) throw new Error(`${dir}: not found`)
+  const _dir = fs.readdirSync(dir) //当前目录列表
+  const filenames = []
 
   for (let filename of _dir) {
-    const currentPath = path.join(dir, filename);
-    const isDirectory = fs.lstatSync(currentPath).isDirectory();
+    const currentPath = path.join(dir, filename)
+    const isDirectory = fs.lstatSync(currentPath).isDirectory()
     if (
       (!isDirectory && path.extname(filename) !== '.html') ||
       filename.startsWith('.')
     ) {
-      continue;
+      continue
     }
-    const newPath = currentPath.replace(__dirname, publicPath);
+    const newPath = currentPath.replace(__dirname, publicPath)
     if (isDirectory) {
-      filenames.push(...getDirPath(currentPath, publicPath));
+      filenames.push(...getDirPath(currentPath, publicPath))
     } else {
-      filenames.push(newPath);
+      filenames.push(newPath)
     }
   }
-  return filenames;
+  return filenames
 }
 const createBookmark = ({
   entry = __dirname,
   output = 'index.html',
-  publicPath = ''
+  publicPath = '',
 } = {}) => {
   if (path.extname(output) !== '.html') {
-    throw new Error(`[${output}] output format should be :[.html]`);
+    throw new Error(`[${output}] output format should be :[.html]`)
   }
-  const source = getDirPath(entry, publicPath);
+  const source = getDirPath(entry, publicPath)
   const temp = source.reduce((str, value, i) => {
     str += `
      <p>
       <a href="${value}" target="_blank">${i + 1}. ${path.basename(value)}</a>
      </p>
-    `;
-    return str;
-  }, '');
+    `
+    return str
+  }, '')
 
-  const html = htmlTemp.replace('{path}', temp).replace('{name}', output);
+  const html = htmlTemp.replace('{path}', temp).replace('{name}', output)
 
-  fs.writeFileSync(path.resolve(__dirname, output), html);
-};
+  fs.writeFileSync(path.resolve(__dirname, output), html)
+}
 
 createBookmark({
   entry: __dirname,
   output: 'index.html',
-  publicPath: '/css3-demos'
-});
+  publicPath: '/css3-demos',
+})
