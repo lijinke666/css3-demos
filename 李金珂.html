@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3年前的代码, svg 一笔一划自己画的</title>
+    <style>
+      .loading {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        left: 0;
+        top: 0;
+        background-color: #396;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        perspective: 10000px;
+        transform-origin: 50% 50%;
+        transform-style: preserve-3d;
+      }
+      .loading-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation-duration: 6s;
+        animation: rotate cubic-bezier(0.24, 0.14, 0.48, 1.31) 0.7s forwards;
+      }
+      svg {
+        width: 670px;
+        height: 300px;
+      }
+      path {
+        stroke-width: 3px;
+        stroke-linecap: round;
+        fill: none;
+        stroke-dashoffset: 2000;
+        stroke-dasharray: 2000;
+        stroke: #fff;
+        animation: path 6s cubic-bezier(0.42, 0.1, 0.18, 0.94) infinite;
+      }
+      @keyframes path {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      @keyframes rotate {
+        from {
+          transform: scale(0) translate3d(0, 0, -1000px);
+        }
+        70% {
+          transform: scale(1.2) translate3d(0, 0, -200px);
+        }
+        to {
+          transform: scale(1) translate3d(0, 0, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading">
+      <div class="loading-content">
+        <svg>
+          <path
+            d="M50 50
+                L50 50
+                A15 2 0 1 0 110 30
+                L105 100
+                v -50
+                L 70 85
+                L141 70
+                L104 120
+                v 100
+                A 1 2 0 0 1 69 204
+                L31 167
+                L196 127"
+          ></path>
+          <path
+            d="M300 50
+            L 210 136
+            M257 89
+            L 370 126
+            M 245 155
+            h 70
+            M 245 175
+            h 70
+            M 275 155
+            v 90
+            M 257 232
+            L 228 213
+            M 320 200
+            l 50 -30
+            M 205 245
+            h 160"
+          ></path>
+          <path
+            d="M380 50
+            h 90
+            h -45
+            v 70
+            h -50
+            h 100
+            h -50
+            v 80
+            L 280 263
+            L 532 157
+            A 4 3 0 0 1 666 56
+            L 580 130
+            v 30
+            h 30
+            v -25
+            h -30
+            h 30
+            v 150
+            L 545 222"
+          ></path>
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>
