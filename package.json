@@ -7,10 +7,14 @@
   "license": "MIT",
   "scripts": {
     "start": "browser-sync start --server --files \"**/*.html\" ",
-    "precommit": "bookmark -p /css3-demos"
+    "bookmark": "bookmark -p /css3-demos"
   },
+  "pre-commit": "bookmark",
   "dependencies": {
     "browser-sync": "^2.24.2",
     "j-bookmark": "^0.2.1"
+  },
+  "devDependencies": {
+    "pre-commit": "^1.2.2"
   }
 }
