@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .item {
+      width: 200px;
+      height: 200px;
+      background: url('./1.jpg') no-repeat;
+      background-size: cover;
+      color: #444;
+    }
+
+    .item:nth-child(1) {
+      clip-path: circle(50%);
+    }
+    .item:nth-child(2) {
+      clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    }
+    .item:nth-child(3) {
+      clip-path: path('M0.5,1 C0.5,1,0,0.7,0,0.3 A0.25,0.25,1,1,1,0.5,0.3 A0.25,0.25,1,1,1,1,0.3 C1,0.7,0.5,1,0.5,1 Z');
+    }
+  </style>
+</head>
+<body>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+</body>
+</html>
