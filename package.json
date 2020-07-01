@@ -9,7 +9,6 @@
     "start": "browser-sync start --server --files \"**/*.html\" ",
     "bookmark": "bookmark -p /css3-demos"
   },
-  "pre-commit": "bookmark",
   "dependencies": {
     "browser-sync": "^2.24.2",
     "j-bookmark": "^0.2.1"
