@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        /* 使用 grid 布局 */
+        display: grid;
+        justify-content: space-between;
+        /* 每个格子 300px 中间的缝隙 自动填充 */
+        grid-template-columns: repeat(auto-fill, 300px);
+        /* 相当于 margin-top */
+        gap: 10px;
+        /* grid-gap 已废弃 */
+      }
+
+      .list {
+        width: 300px;
+        height: 150px;
+        text-align: center;
+        line-height: 1.5;
+        border: 1px solid #444;
+        background: #396;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="list">1</div>
+      <div class="list">2</div>
+      <div class="list">3</div>
+      <div class="list">4</div>
+      <div class="list">5</div>
+      <div class="list">6</div>
+      <div class="list">7</div>
+    </div>
+  </body>
+</html>

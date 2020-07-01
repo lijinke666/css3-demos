@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    .container{
+      display: grid;
+      grid-template-columns: 400px 300px 200px 100px;
+    }
+    .container2{
+      display:grid;
+      grid-template-columns: 1fr 1fr 3fr;
+    }
+    .item{
+      min-height:40px;
+      padding: 10px;
+      background: #396;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color:#fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>像素为单位</h1>
+  <div class="container">
+    <div class="item">这个宽高 400px</div>
+    <div class="item">这个宽高 300px</div>
+    <div class="item">这个宽高 200px</div>
+    <div class="item">这个宽高 100px</div>
+  </div>
+  <h1>fr为单位,代表按比例分配,有点像 flex:1, flex:2</h1>
+  <div class="container2">
+    <div class="item">1fr</div>
+    <div class="item">1fr</div>
+    <div class="item">3fr</div>
+  </div>
+</body>
+</html>

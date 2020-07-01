@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>conic-gradient 圆锥渐变</title>
+    <style>
+        :root{
+            --startColor:#396;
+            --endColor:#06a;
+            --fontSize:16px;
+        }
+        div{
+            width:300px;
+            height:100px;
+            text-align: center;
+            line-height: 1.5;
+            border:1px solid #dcdcdc;
+            font-size:var(--fontSize);
+        }
+        .div1{
+            background: linear-gradient(to bottom,var(--startColor) 0 ,var(--endColor) 100%);
+            /* background: linear-gradient(to bottom,#396 0 ,#06a 100%) */
+        }
+        .div2{
+            background: radial-gradient(to bottom,var(--startColor) 0 ,var(--endColor) 100%);
+        }
+        .div3{
+            width:400px;
+            height:400px;
+            border-radius: 50%;
+            background: conic-gradient(red, orange, yellow, green, teal, blue, purple);
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">我是线性渐变</div>
+    <div class="div2">我是径向渐变</div>
+    <div class="div3">我是圆锥渐变</div>
+</body>
+</html>

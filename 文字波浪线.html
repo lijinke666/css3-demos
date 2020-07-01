@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>文字波浪线</title>
+  <style>
+    .flow-wave {
+      cursor: pointer;
+      padding: 10px 0;
+    }
+    .flow-wave:hover,
+.flow-wave:focus {
+    background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x,
+        radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;
+    background-size: 20px 20px;
+    background-position: -10px calc(100% + 16px), 0 calc(100% - 4px);
+    animation: waveFlow .2s infinite linear;
+}
+@keyframes waveFlow {
+    from { background-position-x: -10px, 0; }
+    to { background-position-x: -30px, -20px; }
+}
+  </style>
+</head>
+<body>
+
+  <h2>参考资料: https://www.zhangxinxu.com/wordpress/2019/04/css-wave-wavy-animation/</h2>
+  <span class="flow-wave">鼠标放上来</span>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        column-count: 6;
+        column-gap: 0;
+        counter-reset: item-counter;
+      }
+
+      @media screen and (max-width: 1200px) {
+        .container {
+          column-count: 5;
+        }
+      }
+
+      @media screen and (max-width: 700px) {
+        .container {
+          column-count: 4;
+        }
+      }
+
+      @media screen and (max-width: 400px) {
+        .container {
+          column-count: 2;
+        }
+      }
+
+      .item {
+        width: 200px;
+        height: 300px;
+        color: #fff;
+        font-size: 24px;
+        text-align: center;
+        line-height: 300px;
+        background-color: #396;
+        margin: 10px;
+        counter-increment: item-counter;
+      }
+
+      .item:nth-child(2) {
+        height: 500px;
+      }
+
+      .item:nth-child(3) {
+        height: 200px;
+      }
+
+      .item:nth-child(3) {
+        height: 250px;
+      }
+
+      .item:nth-child(9) {
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">9</div>
+      <div class="item">10</div>
+      <div class="item">11</div>
+      <div class="item">12</div>
+      <div class="item">13</div>
+      <div class="item">14</div>
+      <div class="item">15</div>
+      <div class="item">16</div>
+      <div class="item">17</div>
+      <div class="item">18</div>
+      <div class="item">19</div>
+      <div class="item">20</div>
+    </div>
+  </body>
+</html>
