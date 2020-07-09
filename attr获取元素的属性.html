@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p:before {
+        content: attr(title) " ";
+      }
+
+      div:before {
+        content: attr(data-name) " ";
+      }
+    </style>
+  </head>
+  <body>
+    <p title="李金珂">真帅</p>
+    <div data-name="李金珂">sex</div>
+  </body>
+</html>
