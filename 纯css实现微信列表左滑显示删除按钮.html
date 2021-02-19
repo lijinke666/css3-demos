@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>纯css实现微信列表左滑显示删除按钮</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --btn-width: 100px;
+        --line-height: 50px;
+      }
+      .list::-webkit-scrollbar {
+        display: none;
+      }
+      .list {
+        display: flex;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+      }
+      .content {
+        padding: 0 var(--btn-width) 0 10px;
+        flex: 0 0 calc(100vw - var(--btn-width));
+        background: #fff;
+        position: relative;
+        z-index: 2;
+        scroll-snap-align: start;
+        height: var(--line-height);
+        line-height: var(--line-height);
+      }
+      .btn {
+        outline: none;
+        background: rgb(216, 26, 26);
+        color: #fff;
+        border: 1px solid transparent;
+        position: absolute;
+        right: 0;
+        width: var(--btn-width);
+        height: var(--line-height);
+        z-index: 1;
+        padding: 0;
+      }
+      .space {
+        flex: 0 0 var(--btn-width);
+        scroll-snap-align: end;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="list">
+      <div class="content">列表1</div>
+      <button class="btn">删除</button>
+      <span class="space"></span>
+    </div>
+    <div class="list">
+      <div class="content">列表2</div>
+      <button class="btn">删除</button>
+      <span class="space"></span>
+    </div>
+    <div class="list">
+      <div class="content">列表3</div>
+      <button class="btn">删除</button>
+      <span class="space"></span>
+    </div>
+  </body>
+</html>
