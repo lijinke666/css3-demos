@@ -9,10 +9,60 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.event.pull_request.title, 'fix')
     steps:
-      - name: Add labels
+      - name: Add label
         uses: actions-cool/issues-helper@main
         with:
           actions: 'add-labels'
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.pull_request.number }}
           labels: 'pr(fix)'
+
+    if: startsWith(github.event.pull_request.title, 'chore')
+    steps:
+      - name: Add label
+        uses: actions-cool/issues-helper@main
+        with:
+          actions: 'add-labels'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          labels: 'pr(chore)'
+
+    if: startsWith(github.event.pull_request.title, 'feat')
+    steps:
+      - name: Add label
+        uses: actions-cool/issues-helper@main
+        with:
+          actions: 'add-labels'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          labels: 'pr(feature)'
+
+    if: startsWith(github.event.pull_request.title, 'refactor')
+    steps:
+      - name: Add label
+        uses: actions-cool/issues-helper@main
+        with:
+          actions: 'add-labels'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          labels: 'pr(refactor)'
+
+    if: startsWith(github.event.pull_request.title, 'test')
+    steps:
+      - name: Add label
+        uses: actions-cool/issues-helper@main
+        with:
+          actions: 'add-labels'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          labels: 'pr(test)'
+
+    if: startsWith(github.event.pull_request.title, 'docs')
+    steps:
+      - name: Add label
+        uses: actions-cool/issues-helper@main
+        with:
+          actions: 'add-labels'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          labels: 'pr(documentation)'
