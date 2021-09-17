@@ -16,3 +16,12 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.pull_request.number }}
           labels: 'pr(fix)'
+          
+      - name: Set feat label
+        if: startsWith(github.event.pull_request.title, 'feat')
+        uses: actions-cool/issues-helper@main
+        with:
+          actions: 'add-labels'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          labels: 'pr(feat)'
