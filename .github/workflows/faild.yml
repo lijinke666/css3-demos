@@ -17,7 +17,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           
       - name: test
-        run: node test.js
+        run: echo "1"
           
       - name: The job has failed
         if: ${{ failure() }}
