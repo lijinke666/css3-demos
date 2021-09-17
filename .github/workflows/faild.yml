@@ -26,6 +26,36 @@ jobs:
           actions: 'create-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.pull_request.number }}
+          contents: '-1'
           body: |
-             ${{ github.event.pull_request.user.login }} CI 挂了, 请及时查看并修复
+             @${{ github.event.pull_request.user.login }} CI 挂了, 请及时查看并修复
+             
+      - name: The job has failed 2
+        if: ${{ failure() }}
+        uses: actions-cool/issues-helper@main
+        with:
+          actions: 'add-labels'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          labels: 'need fix'
+             
+      - name: The job has succeeded
+        if: ${{ success() }}
+        uses: actions-cool/issues-helper@main
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          contents: '+1'
+          body: |
+             @${{ github.event.pull_request.user.login }} CI 通过, 666
+             
+      - name: The job has succeeded 2
+        if: ${{ success() }}
+        uses: actions-cool/issues-helper@main
+        with:
+          actions: 'remove-labels'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          labels: 'need fix'
 
