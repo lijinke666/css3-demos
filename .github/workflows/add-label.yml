@@ -8,6 +8,14 @@ jobs:
   set-labels:
     runs-on: ubuntu-latest
     steps:
+      - name: Remove labels
+        uses: actions-cool/issues-helper@v2
+        with:
+          actions: 'remove-labels'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          labels: 'pr(fix),pr(feat)'
+          
       - name: Set fix label
         if: startsWith(github.event.pull_request.title, 'fix')
         uses: actions-cool/issues-helper@main
