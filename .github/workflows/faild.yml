@@ -1,4 +1,3 @@
-  
 name: Test
 
 on: [pull_request]
@@ -9,22 +8,37 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-
+        
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-
+          
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
       - name: The job has failed
-        if: ${{ failure() }}
-        run: node test.js
         uses: actions-cool/issues-helper@main
         with:
           actions: 'create-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-             ${{ github.event.pull_request.user.login }} CI 挂了, 请及时查看并修复
-          
+             ${{ github.event.pull_request.user.login }} CI 通过
+             
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+     - name: The job has failed
+       uses: actions-cool/issues-helper@main
+       with:
+        actions: 'create-comment'
+        token: ${{ secrets.GITHUB_TOKEN }}
+        issue-number: ${{ github.event.pull_request.number }}
+        body: |
+           ${{ github.event.pull_request.user.login }} CI 挂了, 请及时查看并修复
+
