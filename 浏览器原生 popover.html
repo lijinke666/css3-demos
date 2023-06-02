@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        background: #ddd;
+        font-weight: 800;
+        border: 2px solid black;
+      }
+
+      #my-popover {
+        background: #333;
+        color: white;
+        font-weight: 400;
+        padding: 1rem;
+        max-width: 200px;
+        line-height: 1.4;
+        position: absolute;
+        top: 1rem;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <button popovertarget="my-popover" popovertargetaction="hide">
+      <span aria-hidden="”true”">❌</span> <span class="sr-only">Close</span>
+    </button>
+
+    <div id="my-popover">
+      <p>I am a popover with more information.</p>
+      <p></p>
+    </div>
+  </body>
+</html>
