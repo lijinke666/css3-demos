@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        height: 300px;
+        border: 1px solid;
+        container-type: scroll-state;
+        overflow: auto;
+
+        /* 底部黏性定位 */
+
+        footer {
+          background: #f6f6f6;
+          position: sticky;
+          bottom: 0;
+          text-align: center;
+        }
+
+        .content {
+          height: 500px;
+        }
+
+        button {
+          width: 100px;
+          height: 32px;
+          border-radius: 12px;
+          background-color: crimson;
+          color: white;
+          cursor: pointer;
+        }
+      }
+
+      @container scroll-state(scrollable: bottom) {
+        /* 如果容器可以滚动，则按钮样式禁用 */
+        button {
+          filter: grayscale(1);
+          opacity: 0.35;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">content</div>
+      <footer>
+        <button>提交</button>
+      </footer>
+    </div>
+  </body>
+</html>
