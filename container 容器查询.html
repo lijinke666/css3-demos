@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* A container context based on inline size */
+      .post {
+        container-type: inline-size;
+        container-name: post;
+      }
+
+      .scroll {
+        width: 200px;
+        height: 200px;
+        overflow: scroll;
+        container-type: scroll-state;
+        container-name: my-scroll-container;
+      }
+
+      .box {
+        width: 400px;
+        height: 400px;
+      }
+
+      /* Apply styles if the container is narrower than 650px */
+      @container post (width < 650px) {
+        .card {
+          width: 50%;
+          background-color: lightgray;
+          font-size: 1em;
+        }
+      }
+
+      @container my-scroll-container scroll-state(scrollable: top) {
+        .scroll {
+          border: 1px solid red;
+        }
+
+        .container {
+          color: red;
+        }
+      }
+
+      @container style(--test: 1) {
+        .container {
+          color: red;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="post">
+      <div class="card">
+        <h2>Card title</h2>
+        <p>Card content</p>
+      </div>
+    </div>
+
+    <div class="scroll"><div class="box">111</div></div>
+
+    <div class="container" style="--test: 1">111</div>
+  </body>
+</html>
