@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --button-color: purple;
+        --hover-color: oklch(from var(--button-color) calc(l + 0.2) c h);
+      }
+      button {
+        background-color: var(--button-color);
+        color: contrast-color(var(--button-color));
+        text-box: cap alphabetic; /* vertically centers the text */
+      }
+      button:hover {
+        background-color: var(--hover-color);
+        color: contrast-color(var(--hover-color));
+      }
+    </style>
+  </head>
+  <body>
+    <button>text</button>
+  </body>
+</html>
